@@ -21,7 +21,7 @@ class _CollegePageState extends State<CollegePage> {
     return Scaffold(
       endDrawer: const StudentDrawer(),
       appBar: const StudentAppBar(),
-      bottomSheet: const StudentBottomSheet(),
+      bottomNavigationBar: const StudentBottomSheet(pageName: CollegePage.routeName),
       body: StudentCollegePageBody(screenWidth: screenWidth),
     );
   }

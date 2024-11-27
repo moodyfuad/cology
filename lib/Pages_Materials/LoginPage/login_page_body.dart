@@ -25,8 +25,10 @@ class _LoginPageBodyState extends State<LoginPageBody> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
+        child: ListView(
+          shrinkWrap: true,
+
+          //mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Padding(
               padding: const EdgeInsets.all(8.0),
@@ -38,11 +40,13 @@ class _LoginPageBodyState extends State<LoginPageBody> {
                 ),
               ),
             ),
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Text(
-                "تسجيل الدخول",
-                style: Theme.of(context).textTheme.headlineLarge,
+            Center(
+              child: Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Text(
+                  "تسجيل الدخول",
+                  style: Theme.of(context).textTheme.headlineLarge,
+                ),
               ),
             ),
             Form(
@@ -187,10 +191,10 @@ class _LoginPageBodyState extends State<LoginPageBody> {
           ],
         ),
       ),
-      bottomSheet: Container(
-        color: primary,
-        height: 20,
-      ),
+      // bottomSheet: Container(
+      //   color: primary,
+      //   height: 20,
+      // ),
     );
   }
 }

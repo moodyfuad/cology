@@ -20,7 +20,7 @@ class _MessagesState extends State<Messages> {
 
     return Scaffold(
       appBar: const MessagesPageAppBar(),
-      bottomSheet: const StudentBottomSheet(),
+      bottomNavigationBar: const StudentBottomSheet(pageName: Messages.routeName,),
       body: StudentMessagesPageBody(
           screenSize: screenSize, screenWidth: screenWidth),
       floatingActionButtonLocation: CustomFloatingActionLocation(),

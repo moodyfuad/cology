@@ -21,7 +21,7 @@ class _InterestsState extends State<Interests> {
     return Scaffold(
       endDrawer: const StudentDrawer(),
       appBar: const StudentAppBar(),
-      bottomSheet: const StudentBottomSheet(),
+      bottomNavigationBar: const StudentBottomSheet(pageName: Interests.routeName,),
       body: StudentInterestsPageBody(screenWidth: screenWidth),
     );
   }

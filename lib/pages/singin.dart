@@ -5,7 +5,9 @@ import 'package:flutter/material.dart';
 class Singin extends StatefulWidget {
   static const String routeName = "/SignIn";
 
-  const Singin({super.key,});
+  const Singin({
+    super.key,
+  });
 
   @override
   State<Singin> createState() => _SinginState();
@@ -42,11 +44,11 @@ List<DropdownMenuItem<dynamic>> level = const [
     value: 'مستوى ثاني',
     child: Text('مستوى ثاني'),
   ),
-    DropdownMenuItem(
+  DropdownMenuItem(
     value: 'مستوى ثالث',
     child: Text('مستوى ثالث'),
   ),
-    DropdownMenuItem(
+  DropdownMenuItem(
     value: 'مستوى رابع',
     child: Text('مستوى رابع'),
   ),
@@ -71,11 +73,11 @@ class _SinginState extends State<Singin> {
 
     return Scaffold(
       body: SigninPageBody(screenWidth: screenWidth, widget: widget),
-      bottomSheet: Container(
-        color: primary,
-        width: screenWidth,
-        height: 20,
-      ),
+      // bottomSheet: Container(
+      //   color: primary,
+      //   width: screenWidth,
+      //   height: 40,
+      // ),
     );
   }
 }

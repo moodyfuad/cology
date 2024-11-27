@@ -21,7 +21,7 @@ class _BatchPageState extends State<BatchPage> {
     return Scaffold(
       endDrawer: const StudentDrawer(),
       appBar: const StudentAppBar(),
-      bottomSheet: const StudentBottomSheet(),
+      bottomNavigationBar: const StudentBottomSheet(pageName: BatchPage.routeName,),
       body: StudentBatchPageBody(screenWidth: screenWidth),
     );
   }

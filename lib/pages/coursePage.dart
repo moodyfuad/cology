@@ -22,7 +22,7 @@ class _CourseState extends State<Course> {
     return Scaffold(
       endDrawer: const StudentDrawer(),
       appBar: const StudentAppBar(),
-      bottomSheet: const StudentBottomSheet(),
+      bottomNavigationBar: const StudentBottomSheet(pageName: Course.routeName,),
       body: StudentCoursePageBody(screenWidth: screenWidth),
     );
   }

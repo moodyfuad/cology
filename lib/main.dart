@@ -15,34 +15,36 @@ class MyApp extends StatelessWidget {
   const MyApp({super.key});
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-        initialRoute: MyHomePage.routeName,
-        onGenerateRoute: RoutManager.GenerateRoute,
-        locale: const Locale('ar', ''),
-        supportedLocales: const [
-          Locale('en', ''),
-          Locale('ar', ''),
-        ],
-        localizationsDelegates: const [
-          GlobalMaterialLocalizations.delegate,
-          GlobalWidgetsLocalizations.delegate,
-          GlobalCupertinoLocalizations.delegate,
-        ],
-        localeResolutionCallback: (locale, supportedLocales) {
-          for (var supportedLocale in supportedLocales) {
-            if (supportedLocale.languageCode == locale?.languageCode) {
-              return supportedLocale;
+    return SafeArea(
+      child: MaterialApp(
+          initialRoute: MyHomePage.routeName,
+          onGenerateRoute: RoutManager.GenerateRoute,
+          locale: const Locale('ar', ''),
+          supportedLocales: const [
+            Locale('en', ''),
+            Locale('ar', ''),
+          ],
+          localizationsDelegates: const [
+            GlobalMaterialLocalizations.delegate,
+            GlobalWidgetsLocalizations.delegate,
+            GlobalCupertinoLocalizations.delegate,
+          ],
+          localeResolutionCallback: (locale, supportedLocales) {
+            for (var supportedLocale in supportedLocales) {
+              if (supportedLocale.languageCode == locale?.languageCode) {
+                return supportedLocale;
+              }
             }
-          }
-          return supportedLocales.first;
-        },
-        debugShowCheckedModeBanner: false,
-        title: 'Cology',
-        theme: CTheme.lightTheme,
-        home: const Directionality(
-          textDirection: TextDirection.rtl,
-          child: MyHomePage(),
-        ));
+            return supportedLocales.first;
+          },
+          debugShowCheckedModeBanner: false,
+          title: 'Cology',
+          theme: CTheme.lightTheme,
+          home: const Directionality(
+            textDirection: TextDirection.rtl,
+            child: MyHomePage(),
+          )),
+    );
   }
 }
 
@@ -62,9 +64,6 @@ class _MyHomePageState extends State<MyHomePage> {
 
     return Scaffold(
       backgroundColor: primary,
-      // appBar: AppBar(
-      //   backgroundColor: Theme.of(context).primaryColor,
-      // ),
       body: Directionality(
         textDirection: TextDirection.rtl,
         child: Center(
@@ -93,7 +92,7 @@ class _MyHomePageState extends State<MyHomePage> {
                           screenWidth),
                       child: Text(
                         "تسجيل الدخول",
-                        style: Theme.of(context).textTheme.bodyLarge,
+                        style: CTheme.lightTheme.textTheme.headlineMedium,
                       ),
                     ),
                   ),
@@ -106,7 +105,8 @@ class _MyHomePageState extends State<MyHomePage> {
                       style: CustomButton.secondaryButtonStyle(screenWidth),
                       child: Text(
                         "انشاء حساب",
-                        style: Theme.of(context).textTheme.bodyLarge,
+                        style: CTheme.lightTheme.textTheme.headlineMedium!
+                            .copyWith(color: Colors.white),
                       ),
                     ),
                   ),

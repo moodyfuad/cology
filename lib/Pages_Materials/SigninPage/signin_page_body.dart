@@ -4,6 +4,7 @@ import 'package:cology/pages/college_page.dart';
 import 'package:cology/pages/login.dart';
 import 'package:cology/pages/singin.dart';
 import 'package:cology/themes/Custom_Themes/CustomStyle/button/primary_button.dart';
+import 'package:cology/themes/Custom_Themes/text_theme.dart';
 import 'package:flutter/material.dart';
 
 class SigninPageBody extends StatefulWidget {
@@ -51,9 +52,14 @@ class _SigninPageBodyState extends State<SigninPageBody> {
                     children: [
                       Expanded(
                         child: TextFormField(
-                          decoration: const InputDecoration(
-                            labelText: "رقم القيد",
-                          ),
+                          decoration: InputDecoration(
+                              labelText: "رقم القيد",
+                              labelStyle: Theme.of(context)
+                                  .textTheme
+                                  .bodyLarge!
+                                  .copyWith(
+                                      color:
+                                          const Color.fromARGB(80, 0, 0, 0))),
                           validator: (value) {
                             if (value == null || value.isEmpty) {
                               return "ادخل رقم القيد";
@@ -73,9 +79,14 @@ class _SigninPageBodyState extends State<SigninPageBody> {
                       const SizedBox(width: 10),
                       Expanded(
                         child: TextFormField(
-                          decoration: const InputDecoration(
-                            labelText: "صورة البطاقة",
-                          ),
+                          decoration: InputDecoration(
+                              labelText: "صورة البطاقة",
+                              labelStyle: Theme.of(context)
+                                  .textTheme
+                                  .bodyLarge!
+                                  .copyWith(
+                                      color:
+                                          const Color.fromARGB(80, 0, 0, 0))),
                         ),
                       ),
                     ],
@@ -84,9 +95,13 @@ class _SigninPageBodyState extends State<SigninPageBody> {
                 Padding(
                   padding: const EdgeInsets.fromLTRB(0, 0, 0, 8),
                   child: TextFormField(
-                    decoration: const InputDecoration(
-                      labelText: "اسم الطالب",
-                    ),
+                    decoration: InputDecoration(
+                        labelText: "اسم الطالب",
+                        labelStyle: Theme.of(context)
+                            .textTheme
+                            .bodyLarge!
+                            .copyWith(
+                                color: const Color.fromARGB(80, 0, 0, 0))),
                     validator: (value) {
                       if (value == null || value.isEmpty) {
                         return "ادخل الاسم بشكل صحيح";
@@ -207,9 +222,13 @@ class _SigninPageBodyState extends State<SigninPageBody> {
                 Padding(
                   padding: const EdgeInsets.fromLTRB(0, 0, 0, 8),
                   child: TextFormField(
-                    decoration: const InputDecoration(
-                      labelText: "رقم الجوال",
-                    ),
+                    decoration: InputDecoration(
+                        labelText: "رقم الجوال",
+                        labelStyle: Theme.of(context)
+                            .textTheme
+                            .bodyLarge!
+                            .copyWith(
+                                color: const Color.fromARGB(80, 0, 0, 0))),
                     validator: (value) {
                       if (value == null || value.isEmpty) {
                         return "ادخل الرقم الصحيح";
@@ -222,7 +241,11 @@ class _SigninPageBodyState extends State<SigninPageBody> {
                 Padding(
                   padding: const EdgeInsets.fromLTRB(0, 0, 0, 8),
                   child: TextFormField(
-                    decoration: const InputDecoration(
+                    decoration: InputDecoration(
+                      labelStyle: Theme.of(context)
+                          .textTheme
+                          .bodyLarge!
+                          .copyWith(color: const Color.fromARGB(80, 0, 0, 0)),
                       labelText: "البريد الالكتروني",
                     ),
                     validator: (value) {
@@ -242,6 +265,10 @@ class _SigninPageBodyState extends State<SigninPageBody> {
                   child: TextFormField(
                     decoration: InputDecoration(
                       labelText: "كلمة المرور",
+                      labelStyle: Theme.of(context)
+                          .textTheme
+                          .bodyLarge!
+                          .copyWith(color: const Color.fromARGB(80, 0, 0, 0)),
                       suffixIcon: IconButton(
                         icon: Icon(
                           _isPasswordVisible
@@ -270,6 +297,10 @@ class _SigninPageBodyState extends State<SigninPageBody> {
                   child: TextFormField(
                     decoration: InputDecoration(
                       labelText: "تاكيد كلمة المرور",
+                      labelStyle: Theme.of(context)
+                          .textTheme
+                          .bodyLarge!
+                          .copyWith(color: const Color.fromARGB(80, 0, 0, 0)),
                       suffixIcon: IconButton(
                         icon: Icon(
                           _isPasswordVisible
@@ -332,10 +363,16 @@ class _SigninPageBodyState extends State<SigninPageBody> {
                     }
                   },
                   style: CustomButton.primaryButtonStyle(widget.screenWidth),
-                  child: Text("انشاء حساب",),
+                  child: Text("انشاء حساب",
+                      style: Theme.of(context)
+                          .textTheme
+                          .headlineMedium!
+                          .copyWith(color: Colors.white)),
                 ),
                 GestureDetector(
-                  child: const Text("لدي حساب"),
+                  child: Text(
+                    "لدي حساب",
+                  ),
                   onTap: () {
                     Navigator.popAndPushNamed(context, Login.routeName);
                   },
