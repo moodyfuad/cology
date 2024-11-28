@@ -72,10 +72,14 @@ class _MyHomePageState extends State<MyHomePage> {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               Padding(
-                padding: const EdgeInsets.only(top: 0.0),
+                padding: const EdgeInsets.all(8.0),
                 child: CircleAvatar(
-                  radius: screenWidth * 0.2,
-                  child: FlutterLogo(size: screenWidth * 0.3),
+                  //backgroundColor: Colors.transparent,
+                  radius: screenWidth * 0.3,
+                  child: Image.asset(
+                    "assets/logo.png",
+                    width: screenWidth * 0.5,
+                  ),
                 ),
               ),
               Column(

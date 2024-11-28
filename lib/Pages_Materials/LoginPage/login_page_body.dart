@@ -2,6 +2,7 @@ import 'package:cology/Model/cernt_student.dart';
 import 'package:cology/Model/student.dart';
 import 'package:cology/pages/college_page.dart';
 import 'package:cology/pages/forgit_password.dart';
+import 'package:cology/pages/login.dart';
 import 'package:cology/pages/singin.dart';
 import 'package:cology/themes/Custom_Themes/CustomStyle/button/primary_button.dart';
 import 'package:cology/themes/lyout.dart';
@@ -33,10 +34,11 @@ class _LoginPageBodyState extends State<LoginPageBody> {
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: CircleAvatar(
+                backgroundColor: Colors.transparent,
                 radius: widget.screenWidth * 0.2,
-                child: Icon(
-                  Icons.login,
-                  size: widget.screenWidth * 0.2,
+                child: Image.asset(
+                  "assets/logo.png",
+                  width: widget.screenWidth * 0.5,
                 ),
               ),
             ),
@@ -117,11 +119,8 @@ class _LoginPageBodyState extends State<LoginPageBody> {
                       style: Theme.of(context).textTheme.bodyMedium,
                     ),
                     onTap: () {
-                      Navigator.pushReplacement(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => ForgitPasswordPage(),
-                          ));
+                      Navigator.pushReplacementNamed(
+                          context, ForgitPasswordPage.routeName);
                     },
                   ),
                   Padding(
@@ -130,17 +129,18 @@ class _LoginPageBodyState extends State<LoginPageBody> {
                       onPressed: () {
                         if (_formKey.currentState!.validate()) {
                           var stu = Student.student.firstWhere(
-                              (item) => item.idRegstrion == _idRegstrion.text,
-                              orElse: () => Student(
-                                  idRegstrion: '',
-                                  name: '',
-                                  stude: '',
-                                  typeAcsp: '',
-                                  level: '',
-                                  smster: '',
-                                  number: '',
-                                  email: '',
-                                  passWord: ''));
+                            (item) => item.idRegstrion == _idRegstrion.text,
+                            // orElse: () => Student(
+                            //     idRegstrion: '',
+                            //     name: '',
+                            //     stude: '',
+                            //     typeAcsp: '',
+                            //     level: '',
+                            //     smster: '',
+                            //     number: '',
+                            //     email: '',
+                            //     passWord: '')
+                          );
                           if (stu.idRegstrion.isNotEmpty) {
                             CerntStudent.student.add(
                               CerntStudent(
@@ -155,12 +155,8 @@ class _LoginPageBodyState extends State<LoginPageBody> {
                                 passWord: stu.passWord,
                               ),
                             );
-                            Navigator.pushReplacement(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) => const CollegePage(),
-                              ),
-                            );
+                            Navigator.pushReplacementNamed(
+                                context, CollegePage.routeName);
                           }
                         }
                       },

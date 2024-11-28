@@ -25,9 +25,13 @@ class CommentsBox extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               const Padding(
-                padding: EdgeInsets.all(2),
+                padding: EdgeInsets.symmetric(horizontal: 5, vertical: 3),
                 child: CircleAvatar(
-                  child: Icon(Icons.person),
+                  backgroundColor: Colors.black26,
+                  child: Icon(
+                    Icons.person,
+                    color: Colors.white,
+                  ),
                 ),
               ),
               Container(
@@ -35,7 +39,7 @@ class CommentsBox extends StatelessWidget {
                   color: Colors.white,
                   border: Border.all(
                     color: Colors.black45,
-                    width: 1.0,
+                    width: .4,
                   ),
                   borderRadius: const BorderRadius.all(Radius.circular(8)),
                 ),
@@ -46,30 +50,32 @@ class CommentsBox extends StatelessWidget {
                     Padding(
                       padding: const EdgeInsets.all(4.0),
                       child: Text(
-                        "${mapComments.elementAt(index)["Name"]} - ${mapComments.elementAt(index)["Postion"]}",
-                        style: Theme.of(context).textTheme.bodyLarge,
+                        "${mapComments.elementAt(index)["Postion"]}/ ${mapComments.elementAt(index)["Name"]}",
+                        style: Theme.of(context).textTheme.headlineSmall,
                       ),
                     ),
                     Container(
-                      height: 1,
-                      width: double.infinity,
+                      height: .3,
+                      width: 100,
                       color: Colors.black45,
+                      alignment: Alignment.centerRight,
                     ),
                     Padding(
                       padding: const EdgeInsets.all(8.0),
                       child: Text(
                         mapComments.elementAt(index)["Comment"]!,
-                        style: Theme.of(context).textTheme.bodyMedium,
+                        style: Theme.of(context).textTheme.titleLarge,
                       ),
                     ),
                     Padding(
-                      padding: const EdgeInsets.all(1),
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 15, vertical: 5),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.end,
                         children: [
                           Text(
                             "${mapComments.elementAt(index)["CommentTime"]}",
-                            style: Theme.of(context).textTheme.labelLarge,
+                            style: Theme.of(context).textTheme.bodyMedium,
                           ),
                         ],
                       ),

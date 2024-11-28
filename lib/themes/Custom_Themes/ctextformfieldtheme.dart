@@ -29,7 +29,7 @@ class Ctextformfieldtheme {
     focusedBorder: const OutlineInputBorder().copyWith(
       borderRadius: BorderRadius.circular(12.0),
       borderSide: const BorderSide(
-        width: 1,
+        width: 0,
         color: Colors.black12,
       ),
     ),

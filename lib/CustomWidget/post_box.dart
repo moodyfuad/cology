@@ -17,90 +17,100 @@ class PostBox extends StatelessWidget {
     List<UserPosts> selected = UserPosts.selectedPost;
 
     return SizedBox(
-      width: screenWidth,
       child: Padding(
         padding: const EdgeInsets.all(8.0),
         child: Row(
-          crossAxisAlignment: CrossAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            const Padding(
-              padding: EdgeInsets.all(2),
-              child: CircleAvatar(
-                child: Icon(Icons.person),
-              ),
-            ),
             Container(
               decoration: BoxDecoration(
-                color: Colors.white,
                 border: Border.all(
-                  color: Colors.black45,
-                  width: 1.0,
+                  color: Colors.black12,
+                  width: .5,
                 ),
                 borderRadius: const BorderRadius.all(Radius.circular(8)),
               ),
-              width: screenWidth * 0.8,
+              width: screenWidth * 0.9,
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Padding(
-                    padding: const EdgeInsets.all(4.0),
-                    child: Text(
-                        "${selected[index].name} - ${selected[index].degre}",
-                        style: Theme.of(context).textTheme.bodyLarge),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      Padding(
+                        padding: EdgeInsets.all(8),
+                        child: CircleAvatar(
+                          backgroundColor: Colors.black38,
+                          child: Icon(
+                            Icons.person,
+                            color: Colors.white,
+                          ),
+                        ),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Text(
+                            "${selected[index].degre}/${selected[index].name}",
+                            style: Theme.of(context).textTheme.headlineSmall),
+                      ),
+                    ],
                   ),
-                  Container(
-                    height: 1,
-                    width: double.infinity,
-                    color: Colors.black45,
-                  ),
                   Padding(
-                    padding: const EdgeInsets.all(8.0),
+                    padding: const EdgeInsets.only(
+                        right: 50, left: 10, bottom: 10, top: 0),
                     child: Text(selected[index].post,
-                        style: Theme.of(context).textTheme.bodyMedium),
+                        style: Theme.of(context).textTheme.titleLarge),
                   ),
                   Padding(
-                    padding: const EdgeInsets.all(1),
+                    padding:
+                        const EdgeInsets.symmetric(horizontal: 15, vertical: 2),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.end,
                       children: [
-                        Text(selected[index].postTime,
-                            style: Theme.of(context).textTheme.labelLarge),
+                        Text(
+                          selected[index].postTime,
+                          style: Theme.of(context)
+                              .textTheme
+                              .bodyMedium!
+                              .copyWith(fontWeight: FontWeight.bold),
+                        ),
                       ],
                     ),
                   ),
-                  Container(
-                    height: 1,
-                    width: double.infinity,
-                    color: Colors.black45,
-                  ),
                   GestureDetector(
                     onTap: () {
-                      Navigator.pushNamed(context, PostComments.routeName,arguments: index);
+                      Navigator.pushNamed(context, PostComments.routeName,
+                          arguments: index);
                     },
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Padding(
-                          padding: const EdgeInsets.all(4.0),
-                          child: Text("التعليقات",
-                              style: Theme.of(context).textTheme.bodyMedium),
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.all(4.0),
-                          child: CircleAvatar(
-                            radius: 10,
+                    child: Container(
+                      color: Colors.black12,
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          Padding(
+                            padding: const EdgeInsets.only(
+                                right: 25.0, top: 10, bottom: 10),
                             child: Text(
                               (UserPosts.selectedPost[index].comments.length >
                                       UserPosts.users[index].comments.length)
                                   ? "${selected[index].comments.length}"
                                   : "${UserPosts.users[index].comments.length}",
-                              style: Theme.of(context).textTheme.bodySmall,
+                              style: Theme.of(context).textTheme.bodyLarge,
                             ),
                           ),
-                        )
-                      ],
+                          Padding(
+                            padding: const EdgeInsets.only(
+                                right: 10.0, top: 10, bottom: 12),
+                            child: Text("من التعليقات",
+                                style: Theme.of(context).textTheme.bodyLarge),
+                          ),
+                        ],
+                      ),
                     ),
-                  )
+                  ),
                 ],
               ),
             )

@@ -24,12 +24,12 @@ class _ForgitPasswordPageState extends State<ForgitPasswordPage> {
   @override
   void initState() {
     // TODO: implement initState
-    widget.screenWidth = MediaQuery.of(context).size.width;
     super.initState();
   }
 
   @override
   Widget build(BuildContext context) {
+    widget.screenWidth = MediaQuery.of(context).size.width;
     return Scaffold(
       body: Center(
         child: Column(

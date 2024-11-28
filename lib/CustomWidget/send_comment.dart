@@ -6,7 +6,8 @@ class SendComment extends StatefulWidget {
   const SendComment({
     super.key,
     required this.screenWidth,
-    required this.comment, required this.onSend,
+    required this.comment,
+    required this.onSend,
   });
 
   final double screenWidth;
@@ -32,9 +33,24 @@ class _SendCommentState extends State<SendComment> {
           Padding(
             padding: const EdgeInsets.all(8.0),
             child: SizedBox(
-              width: widget.screenWidth * 0.75,
+              width: widget.screenWidth * 0.80,
               child: TextFormField(
-                decoration: const InputDecoration(
+                decoration: InputDecoration(
+                  focusedBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(50),
+                    gapPadding: 10,
+                    borderSide: const BorderSide(color: Colors.green, width: 1),
+                  ),
+                  enabledBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(50),
+                    gapPadding: 10,
+                    borderSide:
+                        const BorderSide(color: Colors.black26, width: 1),
+                  ),
+                  border: OutlineInputBorder(
+                      borderSide:
+                          const BorderSide(color: Colors.transparent, width: 0),
+                      borderRadius: BorderRadius.circular(50)),
                   labelText: "ارسال تعليق",
                 ),
                 controller: _controller,

@@ -20,17 +20,14 @@ class _PostsState extends State<Posts> {
     List<UserPosts> selected = UserPosts.selectedPost;
 
     return Expanded(
-      child: Padding(
-        padding: const EdgeInsets.only(bottom: 70),
-        child: ListView.builder(
-          itemCount: selected.length,
-          itemBuilder: (context, index) {
-            return PostBox(
-              screenWidth: widget.screenWidth,
-              index: index,
-            );
-          },
-        ),
+      child: ListView.builder(
+        itemCount: selected.length,
+        itemBuilder: (context, index) {
+          return PostBox(
+            screenWidth: widget.screenWidth,
+            index: index,
+          );
+        },
       ),
     );
   }

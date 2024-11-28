@@ -1,7 +1,7 @@
 import 'package:cology/themes/lyout.dart';
 import 'package:flutter/material.dart';
 
-class CustomButton extends ButtonStyle {
+class CustomButton {
 
   static ButtonStyle primaryButtonStyle(double screenWidth) {
     return ButtonStyle(
@@ -21,7 +21,7 @@ class CustomButton extends ButtonStyle {
 
   static ButtonStyle buttonStyleWithbackgroundColor(double screenWidth) {
     return ButtonStyle(
-      foregroundColor: WidgetStateProperty.all(primary),
+      //foregroundColor: WidgetStateProperty.all(primary),
       minimumSize: WidgetStateProperty.all(Size(screenWidth * 0.8, 50)),
     );
   }

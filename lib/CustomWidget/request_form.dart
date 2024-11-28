@@ -14,11 +14,11 @@ class RequestForm extends StatelessWidget {
   Widget build(BuildContext context) {
     return Form(
       child: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
+        child: ListView(
           children: [
             Padding(
-              padding: const EdgeInsets.all(8.0),
+              padding: const EdgeInsets.only(
+                  top: 100, left: 50.0, right: 50, bottom: 10),
               child: SizedBox(
                 width: screenWidth * 0.75,
                 child: DropdownButtonFormField(
@@ -37,7 +37,8 @@ class RequestForm extends StatelessWidget {
               ),
             ),
             Padding(
-              padding: const EdgeInsets.all(8.0),
+              padding: const EdgeInsets.only(
+                  top: 10, left: 50.0, right: 50, bottom: 10),
               child: SizedBox(
                 width: screenWidth * 0.75,
                 child: TextFormField(
@@ -48,26 +49,34 @@ class RequestForm extends StatelessWidget {
               ),
             ),
             Padding(
-              padding: const EdgeInsets.all(8.0),
+              padding: const EdgeInsets.only(
+                  top: 10, left: 50.0, right: 50, bottom: 10),
               child: SizedBox(
                 width: screenWidth * 0.75,
                 child: TextFormField(
                   maxLines: 6,
+                  textAlign: TextAlign.start,
                   decoration: const InputDecoration(
+                    alignLabelWithHint: true,
                     labelText: "محتوى الطلب",
                   ),
                 ),
               ),
             ),
             Padding(
-              padding: const EdgeInsets.all(16),
+              padding: const EdgeInsets.only(
+                  top: 10, left: 50.0, right: 50, bottom: 10),
               child: ElevatedButton(
                 onPressed: () {},
                 style: CustomButton.primaryButtonStyle(screenWidth),
                 child: const Text("رفع الطلب"),
               ),
             ),
-            Text("عدد الطلبات المسموح بها اليوم : 2",style: Theme.of(context).textTheme.bodySmall,)
+            Text(
+              "عدد الطلبات المسموح بها اليوم : 2",
+              style: Theme.of(context).textTheme.titleSmall,
+              textAlign: TextAlign.center,
+            )
           ],
         ),
       ),
